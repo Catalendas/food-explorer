@@ -14,10 +14,15 @@ import { Back } from "../../components/Back";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { formatPrice } from "../../utils/formatPrice";
+import { useCartHook } from "../../hook/cartHook";
 
 export function Details() {
 
     const [dish, setDish] = useState({})
+    const [quantity, setQuantity] = useState(1)
+
+    const { setCart } = useCartHook()
+
     const { id } = useParams()
 
     const navigate = useNavigate()
@@ -42,6 +47,34 @@ export function Details() {
             }
         }
     }
+
+    function plus() {
+        setQuantity(quantity + 1)
+    }
+
+    function minus() {
+        setQuantity(prevSatate => {
+            if (prevSatate == 1) {
+                 alert("Operação não permitida")
+                 return prevSatate
+            } else {
+                return prevSatate - 1
+            }
+        })
+    }
+
+    function handleAddToCart() {
+        setCart(prevState => [{
+            image: dish.image, 
+            title: dish.title,
+            description: dish.description,
+            price: dish.price , 
+            id: dish.id, 
+            quantity}, 
+            ...prevState])
+    } 
+
+
 
     useEffect(() => {
         getDish()
@@ -68,9 +101,9 @@ export function Details() {
 
                     {user.role !== USER_ROLES.ADMIN ? (
                         <div>
-                            <Stepper />
+                            <Stepper quantity={quantity} plus={plus} minus={minus}/>
 
-                            <Button icon={Receipt}>
+                            <Button icon={Receipt} onClick={handleAddToCart}>
                                 Incluir . {formatPrice(dish.price)}
                             </Button>
                         </div>

@@ -4,7 +4,7 @@
 
 Projeto feito na trilha fullStack da rocketseat, o projeto consiste em uma pagina de um restaurante onde os clientes pode faer seus pedidos atrave da plataforma e o usuario admin pode criar e fazer a gestão dos seus pedidos.
 
-Esse projeto foi feito em React.js seguindo as principais caracteristicas que um projeto feito com essa biblioteca deveria ter como a organização da estrutura de pastas, foi seguido o template disponibiliado no (figma)[https://www.figma.com/community/file/1196874589259687769/food-explorer-v2]
+Esse projeto foi feito em React.js seguindo as principais caracteristicas que um projeto feito com essa biblioteca deveria ter como a organização da estrutura de pastas, foi seguido o template disponibiliado no [figma](https://www.figma.com/community/file/1196874589259687769/food-explorer-v2)
 
 O projeto também seguiu a diretiva mobile-fisrt onde contruimos primeiro a parte mobile do app.
 
@@ -32,8 +32,8 @@ Todas as funcionalidades da aplicação estão em completa funcionalidade
 
 Siga os passos abaixo para a insstalação do projeto em sua maquina:
 
-- Instale o (git)[https://git-scm.com/].
-- Instale o (Node.js)[https://nodejs.org/en].
+- Instale o [git](https://git-scm.com/).
+- Instale o [Node.js](https://nodejs.org/en).
 - Clone o repositório do projeto com o comando ``git clone https://github.com/Catalendas/food-explorer-front-end.git``.
 - Abra o terminal na pasta do projeto e execute o comando ``npm i`` para instalar as dependenciais do projeto.
 - Rode o comando ``npm run dev`` para executar o projeto em ambiente de desenvolvimento(A api utliada será a que está em produção).

@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { Details } from "../pages/Details";
-import { Home } from "../pages/Home"
+
 import { Layout } from "./layout";
 import { NotFound } from "../pages/NotFound";
 import { New } from "../pages/New";
 import { Admin } from "../pages/Admin";
+import { Home } from "../pages/Home";
 
 export function AdminRoutes() {
     return (

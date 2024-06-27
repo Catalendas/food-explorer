@@ -22,12 +22,7 @@ export function Home() {
         try {
             const response = await api.get(`/dish?title=${search}`)
 
-             const dishes = response.data.map((e) => {
-                e.image = api.defaults.baseURL?.concat(`/files/${e.image}`)
-                return e
-             })
-
-            setData(dishes)
+            setData(response.data)
 
         } catch (error) {
             if (error.response) {
@@ -48,15 +43,15 @@ export function Home() {
                 <div>
                     <Section title="Refeições">
                         <SwipperComponent>
-                            {data.length && data.map((e) => {
+                            {data.map((e) => {
                                 if (e.category == "snack") {
                                     return (
-                                        <SwiperSlide key={e?.id}>
+                                        <SwiperSlide key={e.id}>
                                             <Card 
-                                                title={e?.title}
-                                                description={e?.description}
-                                                id={e?.id}
-                                                image={e?.image}
+                                                title={e.title}
+                                                description={e.description}
+                                                id={e.id}
+                                                image={e.image}
                                                 price={e.price}
                                             />
                                         </SwiperSlide>

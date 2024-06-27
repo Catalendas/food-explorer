@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { USER_ROLES } from "../../utils/roles";
 import { formatPrice } from "../../utils/formatPrice";
 import { useCartHook } from "../../hook/cartHook";
+import { api } from "../../services/api";
 
 
 export function Card({ image, title, description, price, id }) {
@@ -25,6 +26,8 @@ export function Card({ image, title, description, price, id }) {
     const [quantity, setQuantity] = useState(1)
 
     const toggleHart = isFavorite ? HeartFill : Heart
+
+    const imageDish = api.defaults.baseURL.concat(`/files/${image}`)
 
     function handleAddToCart() {
         setCart(prevState => [{image, title, description, price , id, quantity}, ...prevState])
@@ -58,7 +61,7 @@ export function Card({ image, title, description, price, id }) {
             )}
 
             <Info to={`/details/${id}`}>
-                <img src={image} alt="Dish" />
+                <img src={imageDish} alt="Dish" />
 
                 <span>{title}</span>
 

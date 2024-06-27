@@ -38,7 +38,7 @@ export function Header() {
                     <img src={toggleImageMenu} alt="Menu" />
                 </button>
 
-                <Logo className={isVisible || cartIsVisible ? "hidden" : undefined}>
+                <Logo className={isVisible ? "hidden" : undefined}>
                     <img src={LogoImage} alt="Logo"/>
                     <span className={user.role !== USER_ROLES.ADMIN ? "hidden" : undefined}>admin</span>
                 </Logo>
@@ -53,8 +53,12 @@ export function Header() {
                             Novo Prato
                         </Button>
                     ) : (
-                        <Button icon={Receipt} onClick={() => cartSetIsVisible(!cartIsVisible)}>
-                            Pedido ({cart.length})
+                        <Button icon={!cartIsVisible ? Receipt : ""} onClick={() => cartSetIsVisible(!cartIsVisible)}>
+                            {cartIsVisible ? (
+                                <img src={Close} alt="close" />
+                            ) : (
+                                <p>Pedido ({cart.length})</p>
+                            )}
                         </Button>
                     )}
 
